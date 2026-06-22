@@ -43,13 +43,9 @@ export default async function handler(req, res) {
 
 const text = await response.text();
 
-return res.status(200).json({
-  TEST: "MEVON RESPONSE",
-  raw_response: text
-});
+const parsed = JSON.parse(text);
 
-    return res.status(200).json({
-  TEST: "HELLO",
+return res.status(200).json({
   account_number: parsed.account_number,
   account_name: parsed.account_name,
   bank_name: parsed.bank_name,
