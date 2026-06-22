@@ -41,25 +41,12 @@ export default async function handler(req, res) {
       }
     );
 
-    const text = await response.text();
+const text = await response.text();
 
-    let parsed;
-
-    try {
-
-      const result = JSON.parse(text);
-
-      parsed = result.raw
-        ? JSON.parse(result.raw)
-        : result;
-
-    } catch {
-
-      return res.status(500).json({
-        error: text
-      });
-
-    }
+return res.status(200).json({
+  TEST: "MEVON RESPONSE",
+  raw_response: text
+});
 
     return res.status(200).json({
   TEST: "HELLO",
